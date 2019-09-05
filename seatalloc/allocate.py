@@ -1,10 +1,11 @@
 from functools import reduce
 import random as rdn
 
-all_groups = []
 user_in_group_count_map_1 = {'Dev 1': 3, 'Dev 2': 9, 'Dev 3': 2, 'Dev 4': 12, 'RTB 1': 7, 'HR': 4}
 
-def allocate_seat_for_N(user_group_counts, strategy):
+def allocate_seat_for_N(strategy):
+    user_group_counts = user_in_group_count_map_1
+
     # init for N
     # generate user list
     group_list = {}      # group->[user list]
@@ -19,6 +20,9 @@ def allocate_seat_for_N(user_group_counts, strategy):
     # init seat map
     seat_map = ['' for _ in range(seat_count)]
 
+    return allocate_seat(seat_map, group_list, strategy)
+
+def allocate_seat(seat_map, group_list, strategy):
     # allocate by strategy
     if strategy == 'random':
         return allocate_random_seat(seat_map, group_list)
@@ -26,9 +30,6 @@ def allocate_seat_for_N(user_group_counts, strategy):
         return allocate_seat_by_group(seat_map, group_list)
 
     return [], []
-
-def allocate_seat(seat_map, user_list, strategy):
-    pass
 
 def allocate_random_seat(seat_map, group_user_list):
     # get user list
@@ -75,5 +76,5 @@ def allocate_seat_by_group(seat_map, group_user_list):
     return seat_map, user_not_allocated
     
 if __name__ == '__main__':
-    print(allocate_seat_for_N(user_in_group_count_map_1, 'random'))
+    print(allocate_seat_for_N('random'))
     

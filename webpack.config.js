@@ -50,9 +50,4 @@ const config = {
   }
 };
 
-if (env === 'development') {
-  config.mode = 'development';
-  config.devtool = 'source-map';
-}
-
 module.exports = config;

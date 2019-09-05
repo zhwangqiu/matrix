@@ -48,17 +48,14 @@ def allocate_random_seat(seat_map, group_user_list):
                 if seat_map[idx] == '':
                     break
 
-            seat_map[idx] = u
+            seat_map[idx] = f'{u[1]}@{u[0]}'
             allocated += 1
         else:
-            user_not_allocated.append(u[1])
+            user_not_allocated.append(f'{u[1]}@{u[0]}')
 
     # adjust seat to make sure max distance between team mates
 
     return seat_map, user_not_allocated
-
-def allocate_max_discrete_seat(seat_map, group_user_list):
-    pass
 
 def allocate_seat_by_group(seat_map, group_user_list):
     seat_count = len(seat_map)

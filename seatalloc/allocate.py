@@ -1,3 +1,4 @@
+from functools import reduce
 import random as rdn
 
 all_groups = []
@@ -24,15 +25,37 @@ def allocate_seat_for_N(user_group_counts, strategy):
     elif strategy == 'bygroup':
         return allocate_seat_by_group(seat_map, group_list)
 
-    return seat_map
+    return [], []
 
 def allocate_seat(seat_map, user_list, strategy):
     pass
 
 def allocate_random_seat(seat_map, group_user_list):
     # get user list
-    # user_list = list(map(lambda x: x[0] + x[1], [(g, u) for g, u in group_user_list.items()]))
-    pass
+    user_list = reduce(lambda x, y: x + y, list(map(lambda x: [(x[0], y) for y in x[1]], group_user_list.items())))
+    # print(user_list)
+
+    user_not_allocated = []
+
+    # allocate random
+    # user_count = len(user_list)
+    seat_count = len(seat_map)
+    allocated = 0
+    for u in user_list:
+        if allocated < seat_count:
+            while True:
+                idx = rdn.randint(0, seat_count - 1)
+                if seat_map[idx] == '':
+                    break
+
+            seat_map[idx] = u
+            allocated += 1
+        else:
+            user_not_allocated.append(u[1])
+
+    # adjust seat to make sure max distance between team mates
+
+    return seat_map, user_not_allocated
 
 def allocate_max_discrete_seat(seat_map, group_user_list):
     pass
@@ -55,5 +78,5 @@ def allocate_seat_by_group(seat_map, group_user_list):
     return seat_map, user_not_allocated
     
 if __name__ == '__main__':
-    print(allocate_seat_for_N(user_in_group_count_map_1, 'bygroup'))
-
+    print(allocate_seat_for_N(user_in_group_count_map_1, 'random'))
+    

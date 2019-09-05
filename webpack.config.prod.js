@@ -3,20 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 const config = {
-  mode:"development",
-  devtool:'inline-source-map',
+  mode:"production",
   watch:true,
-  devServer:{
-    hot:true,
-    port:3000,
-    historyApiFallback:true
-  },
-  entry:{
+ entry:{
     index:'./src/index.js'
   },
   plugins: [
-    new HtmlWebpackPlugin({template:'./public/index.html'}),
-    new webpack.HotModuleReplacementPlugin()
   ],
   output:{
     path:path.resolve(__dirname,'dist'),
@@ -49,10 +41,5 @@ const config = {
     ]
   }
 };
-
-if (env === 'development') {
-  config.mode = 'development';
-  config.devtool = 'source-map';
-}
 
 module.exports = config;

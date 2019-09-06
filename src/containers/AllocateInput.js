@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import { Select, TextField, Paper, FormControl, InputLabel, Popper, MenuItem, Button, List, ListItem, Chip } from '@material-ui/core';
 import { Delete, Add, Refresh } from '@material-ui/icons'
 import Axios from 'axios';
+import randomData from '../data/randomData.json'
+import groupData from '../data/groupData.json'
 
 const randomColor = ()=>Math.floor(Math.random()*150)+100
 
@@ -17,9 +19,10 @@ const allocate = (input,setResult)=>{
     .then(resp=>console.log(resp))
     .catch(err=>console.log(err))
     .finally(()=>{
-        const data2 = [["User 1@Dev 1", "User 2@Dev 1"], []]
-        const data = [["User 9@Dev 4", "User 4@Dev 4", "User 1@Dev 4", "User 2@Dev 4", "User 3@Dev 2", "User 2@RTB 1", "User 1@Dev 1", "User 9@Dev 2", "User 6@RTB 1", "User 3@Dev 1", "User 7@Dev 4", "User 5@Dev 2", "User 2@Dev 3", "User 6@Dev 2", "User 12@Dev 4", "User 2@Dev 2", "User 8@Dev 4", "User 10@Dev 4", "User 3@Dev 4", "User 8@Dev 2", "User 1@RTB 1", "User 1@Dev 2", "User 4@Dev 2", "User 1@HR", "User 5@Dev 4", "User 6@Dev 4", "User 4@RTB 1", "User 7@Dev 2", "User 11@Dev 4", "User 3@RTB 1", "User 5@RTB 1", "User 7@RTB 1", "User 1@Dev 3", "User 2@Dev 1"], ["User 2@HR", "User 3@HR", "User 4@HR"]]
-        setResult({allocateUsers:convertUsers(data[0]),workFromHomeUsers:convertUsers(data2[0])});
+        // const randomData = [["User 1@Dev 1", "User 2@Dev 1"], []]
+        // const groupData = [["User 9@Dev 4", "User 4@Dev 4", "User 1@Dev 4", "User 2@Dev 4", "User 3@Dev 2", "User 2@RTB 1", "User 1@Dev 1", "User 9@Dev 2", "User 6@RTB 1", "User 3@Dev 1", "User 7@Dev 4", "User 5@Dev 2", "User 2@Dev 3", "User 6@Dev 2", "User 12@Dev 4", "User 2@Dev 2", "User 8@Dev 4", "User 10@Dev 4", "User 3@Dev 4", "User 8@Dev 2", "User 1@RTB 1", "User 1@Dev 2", "User 4@Dev 2", "User 1@HR", "User 5@Dev 4", "User 6@Dev 4", "User 4@RTB 1", "User 7@Dev 2", "User 11@Dev 4", "User 3@RTB 1", "User 5@RTB 1", "User 7@RTB 1", "User 1@Dev 3", "User 2@Dev 1"], ["User 2@HR", "User 3@HR", "User 4@HR"]]
+        const data = input.strategy=='random'?randomData:groupData;
+        setResult({allocateUsers:convertUsers(data[0]),workFromHomeUsers:convertUsers(data[1])});
     })
 }
 const groupColorMap = []

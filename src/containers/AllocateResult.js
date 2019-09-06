@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TextField, List, ListItem, Chip, Avatar, Container, Typography, Divider } from '@material-ui/core'
+import {randomData,groupData} from '../components/data'
 
 const SeatItem = ({ user, seatId, style: itemStyle, bkg }) => (
     <Chip label={`${user.userId}`} avatar={<Avatar>{seatId}</Avatar>} style={{ backgroundColor: bkg }} />

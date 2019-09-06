@@ -36,7 +36,7 @@ const allocateResult = (state = {allocateUsers:[],workFromHomeUsers:[]},{type,pa
     }
 }
 
-const activeMenuItem = (state="predictor",{type,payload})=>{
+const activeMenuItem = (state="analysis",{type,payload})=>{
     switch(type){
         case "set_active_menu_item":
             return payload

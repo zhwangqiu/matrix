@@ -30,3 +30,10 @@ export const distribute = (plan,w)=>{
         return ({days:it,count:plan.filter(k=>k==it).length,weight,percent:it*100.0/plan.length})
     })
 }
+
+export const getBest = (distribution)=>{
+    const weight = distribution.map(it=>it.weight)
+    const best = Math.min(...weight)
+    const index = weight.indexOf(best)
+    return distribution.length==0?0:distribution[index].days
+}

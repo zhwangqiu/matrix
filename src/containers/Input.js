@@ -6,11 +6,13 @@ import { Refresh } from '@material-ui/icons'
 import Axios from 'axios';
 
 const predict = (input,setResult)=>{
-        Axios.get("https://fvab8qre63.execute-api.us-east-1.amazonaws.com/default/Hello?uc=150&rc=1&doy=200&doh=11")
+        const url = "https://fvab8qre63.execute-api.us-east-1.amazonaws.com/default/Hello?uc=150&rc=1&doy=200&doh=11"
+        //"https://4dddamvt54.execute-api.us-east-1.amazonaws.com/dev/predict?uc=150&rc=1&doy=200&doh=11"
+        Axios.get(url)
         .then(resp=>console.log(resp))
         .catch(err=>console.log(err))
         .finally(()=>{
-            setResult({max:126, avg:141.75, min:149})
+            setResult({max:184, avg:141.75, min:149})
         })
     }
 const inputStyle = {
@@ -67,7 +69,6 @@ export class Input extends Component {
         margin="normal"
         variant="outlined"
       >
-      
           <MenuItem key="Month" value="Month">
          Month 
           </MenuItem>    <MenuItem key="random" value="random">

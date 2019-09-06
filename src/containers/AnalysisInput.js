@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Select, TextField, Paper, FormControl, InputLabel, Popper, MenuItem, Button } from '@material-ui/core';
 import { Refresh } from '@material-ui/icons'
 import Axios from 'axios';
-import {generateAbsent as generatePlan, distribute, calculateBest }from '../calculator';
+import {generateAbsent as generatePlan, distribute, calculateBest, getBest }from '../calculator';
 
 const predict = (input,setResult)=>{
         Axios.get("https://fvab8qre63.execute-api.us-east-1.amazonaws.com/default/Hello?uc=150&rc=1&doy=200&doh=11")
@@ -13,7 +13,12 @@ const predict = (input,setResult)=>{
         .finally(()=>{
             const plan = generatePlan(input.employeeCount,input.avgLeaveDays,input.totalWorkDays) 
             const distribution = distribute(plan,input.w);
-            setResult({plan,distribution})
+            const trend = [200,500,1000,3000,10000,20000].map(it=>{
+                const p = generatePlan(it,input.avgLeaveDays,input.totalWorkDays)
+                const bestCount = getBest(distribute(p,input.w))
+                return {name:it,percent:(it-bestCount)*100.0/it}
+            })
+            setResult({plan,distribution,trend})
         })
     }
 const inputStyle = {

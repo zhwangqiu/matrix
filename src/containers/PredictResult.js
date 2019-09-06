@@ -4,7 +4,7 @@ import { List,ListItem, Chip, Avatar, Slider} from '@material-ui/core'
 import {newColor} from './util'
 
 const ResultItem = ({value, employeeCount,type})=>(
-    <Chip style={{backgroundColor:newColor(100)}} label={`${type} - Pct: ${value/employeeCount*100}%`} avatar={<Avatar style={{backgroundColor:newColor(120)}}>{value}</Avatar>}/>
+    <Chip style={{backgroundColor:newColor(100)}} label={`seat count:${value}`} avatar={<Avatar style={{backgroundColor:newColor(120)}}>{value/employeeCount*100}%</Avatar>}/>
         )
 
 export class PredictResult extends Component {
@@ -14,8 +14,6 @@ export class PredictResult extends Component {
             <div>
                <List>
                    <ListItem><ResultItem value={result.max} type="max" employeeCount={employeeCount}/></ListItem>
-                   <ListItem><ResultItem value={result.avg} type="avg" employeeCount={employeeCount}/></ListItem>
-                   <ListItem><ResultItem value={result.min} type="min" employeeCount={employeeCount}/></ListItem>
                </List> 
             </div>
         )

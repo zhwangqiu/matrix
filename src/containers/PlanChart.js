@@ -23,7 +23,7 @@ export default class Example extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey={dataKey} stroke="#8884d8" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey={dataKey} stroke="#8884d8" activeDot={{ r: 5 }} />
       </LineChart>
     );
   }

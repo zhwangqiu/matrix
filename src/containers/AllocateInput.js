@@ -13,7 +13,7 @@ const newColor =()=>{
 }
 
 const allocate = (input,setResult)=>{
-    Axios.get("https://29zhfb2tw1.execute-api.us-east-1.amazonaws.com/default/allocate?strategy=bygroup")
+    Axios.get("https://4dddamvt54.execute-api.us-east-1.amazonaws.com/dev/allocate?strategy=bygroup")
     .then(resp=>console.log(resp))
     .catch(err=>console.log(err))
     .finally(()=>{

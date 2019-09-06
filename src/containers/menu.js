@@ -10,14 +10,19 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Computer, EventSeat} from '@material-ui/icons'
+import {Computer, EventSeat, ShowChart} from '@material-ui/icons'
 
 export class menu extends Component {
     render(){
         const {activeMenuItem,setActiveMenu} = this.props;
                 return (
    <div>
-    <ListItem button onClick={e=>setActiveMenu("predictor")} selected={activeMenuItem==="predictor"}>
+    <ListItem button onClick={e=>setActiveMenu("analysis")} selected={activeMenuItem==="analysis"}>
+      <ListItemIcon>
+        <ShowChart/>
+      </ListItemIcon>
+      <ListItemText primary="Aanlysis" />
+    </ListItem><ListItem button onClick={e=>setActiveMenu("predictor")} selected={activeMenuItem==="predictor"}>
       <ListItemIcon>
         <Computer/>
       </ListItemIcon>
@@ -28,11 +33,6 @@ export class menu extends Component {
         <EventSeat/>
       </ListItemIcon>
       <ListItemText primary="Allocator" />
-    </ListItem><ListItem button onClick={e=>setActiveMenu("analysis")} selected={activeMenuItem==="analysis"}>
-      <ListItemIcon>
-        <EventSeat/>
-      </ListItemIcon>
-      <ListItemText primary="Aanlysis" />
     </ListItem>
 
      </div>

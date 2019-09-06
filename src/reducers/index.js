@@ -45,7 +45,7 @@ const activeMenuItem = (state="predictor",{type,payload})=>{
     }
 }
 
-const analysisResult = (state = {plan:[],distribution:[],analysisResult:[]},{type,payload})=>{
+const analysisResult = (state = {plan:[],distribution:[],trend:[]},{type,payload})=>{
     switch(type){
         case "set_analysis_result":
             return payload;

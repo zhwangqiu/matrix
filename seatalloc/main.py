@@ -22,3 +22,7 @@ def allocate_handler(event, context):
         'statusCode': 200,
         'body': json.dumps(result)
     }
+
+if __name__ == '__main__':
+    print('this is main')
+

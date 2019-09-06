@@ -17,8 +17,12 @@ def predict(event, context):
 def allocate(event, context):
     strategy = event['queryStringParameters']['startegy']
 
-    result = allocate.allocate_seat_for_N(strategy)
+    result = allocate.allocate_seat_for_K(strategy)
     return {
         'statusCode': 200,
         'body': json.dumps(result)
     }
+
+if __name__ == '__main__':
+    print('this is main')
+

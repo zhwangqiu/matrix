@@ -58,14 +58,14 @@ provider:
 
 functions:
   predict:
-    handler: handler.predict
+    handler: handler.predict_handler
     events:
       - http:
           path: predict
           method: get
           cors: true
   allocate:
-    handler: handler.allocate
+    handler: handler.allocate_handler
     events:
       - http:
           path: allocate

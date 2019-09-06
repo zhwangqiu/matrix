@@ -28,7 +28,13 @@ export class menu extends Component {
         <EventSeat/>
       </ListItemIcon>
       <ListItemText primary="Allocator" />
+    </ListItem><ListItem button onClick={e=>setActiveMenu("analysis")} selected={activeMenuItem==="analysis"}>
+      <ListItemIcon>
+        <EventSeat/>
+      </ListItemIcon>
+      <ListItemText primary="Aanlysis" />
     </ListItem>
+
      </div>
         )
     }

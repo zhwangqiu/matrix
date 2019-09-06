@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const predictInput = (state={avgLeaveDays:20,totalWorkDays:225,simulateTimes:1000,employeeCount:200,mode:"random"},{type,payload})=>{
+const predictInput = (state={avgLeaveDays:20,totalWorkDays:225,simulateTimes:1000,employeeCount:200,mode:"random",w:10},{type,payload})=>{
     switch(type){
         case "set_predict_input":
             return {...state,...payload};
@@ -18,7 +18,7 @@ const predictResult = (state={max:130,avg:183,min:190},{type,payload})=>{
     }
 }
 
-const allocateInput = (state = {groups:[{groupName:"Equity",employeeCount:10},{groupName:"Fix Income",employeeCount:100}],strategy:"random"},{type,payload})=>{
+const allocateInput = (state = {strategy:"random"},{type,payload})=>{
     switch(type){
         case "set_allocate_input":
             return {...state,...payload}
@@ -44,10 +44,20 @@ const activeMenuItem = (state="predictor",{type,payload})=>{
             return state;
     }
 }
+
+const analysisResult = (state = {plan:[],distribution:[],analysisResult:[]},{type,payload})=>{
+    switch(type){
+        case "set_analysis_result":
+            return payload;
+        default:
+            return state;
+    }
+}
 export default combineReducers({
     predictInput,
     predictResult,
     allocateInput,
     allocateResult,
-    activeMenuItem
+    activeMenuItem,
+    analysisResult
 })

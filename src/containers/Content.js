@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Allocator from './Allocator'
 import Predictor from './Predictor'
+import Analysis from './Analysis';
 
 export class Content extends Component {
     render() {
@@ -12,6 +13,8 @@ export class Content extends Component {
                 return (<Predictor/>)
             case "allocator":
                 return (<Allocator/>)
+            case "analysis":
+                return <Analysis/>
             default:
                 return (<div>Not Found</div>)
         }

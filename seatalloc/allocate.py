@@ -27,7 +27,7 @@ def allocate_seat_for_N(strategy):
 def allocate_seat_for_K(strategy):
     # init for K
     # load all employees
-    employee_data = dataservice.load_employee_data()
+    employee_data = dataservice.get_employee_data()
     total_user = len(employee_data)
 
     # generate user list in groups

@@ -1,31 +1,59 @@
-import pandas as pd
+# import pandas as pd
 from functools import reduce
 
-def load_employee_data(group_count_map=None):
-    # read employee names
-    df = pd.read_csv('.\\employeedata.csv')
+# def load_employee_data(group_count_map=None):
+#     # read employee names
+#     df = pd.read_csv('.\\employeedata.csv')
 
-    # print(df.head())
-    # convert to 'name', 'group'
-    empl_names = df['first_name'].values + ' ' + df['last_name'].values
+#     # print(df.head())
+#     # convert to 'name', 'group'
+#     empl_names = df['first_name'].values + ' ' + df['last_name'].values
     
-    # map with groups
-    if group_count_map is None: 
-        groups = df['state'].values
-        # connect
-        name_groups = list(zip(empl_names, groups))
-    else:
-        # total count
-        total_count = sum(group_count_map.values())
+#     # map with groups
+#     if group_count_map is None: 
+#         groups = df['state'].values
+#         # connect
+#         name_groups = list(zip(empl_names, groups))
+#     else:
+#         # total count
+#         total_count = sum(group_count_map.values())
 
-        empl_names = empl_names[:total_count]
-        groups = reduce(lambda a, b: a + b, [[x] * y for x, y in group_count_map.items()])
-        # print(empl_names)
-        name_groups = list(zip(empl_names, groups))
+#         empl_names = empl_names[:total_count]
+#         groups = reduce(lambda a, b: a + b, [[x] * y for x, y in group_count_map.items()])
+#         # print(empl_names)
+#         name_groups = list(zip(empl_names, groups))
 
-    # print(name_groups)
+#     # print(name_groups)
         
-    return name_groups
+#     return name_groups
+
+# def export_employee_data():
+#     # read employee names
+#     df = pd.read_csv('.\\employeedata.csv')
+
+#     # print(df.head())
+#     # convert to 'name', 'group'
+#     empl_names = df['first_name'].values + ' ' + df['last_name'].values
+    
+#     # map with groups
+#     groups = df['state'].values
+#     # connect
+#     name_groups = list(zip(empl_names, groups))
+
+#     # output as code
+#     print(name_groups)
+
+
+def get_employee_data():
+    employee_data = [('James Butt', 'LA'), ('Josephine Darakjy', 'MI'), ('Art Venere', 'NJ'), ('Lenna Paprocki', 'AK'), ('Donette Foller', 'OH'), ('Simona Morasca', 'OH'), ('Mitsue Tollner', 'IL'), ('Leota Dilliard', 'CA'), ('Sage Wieser', 'SD'), ('Kris Marrier', 'MD'), ('Minna Amigon', 'PA'), ('Abel Maclead', 'NY'), ('Kiley Caldarera', 'CA'), ('Graciela Ruta', 'OH'), ('Cammy Albares', 'TX'), ('Mattie Poquette', 'AZ'), ('Meaghan Garufi', 'TN'), ('Gladys Rim', 'WI'), ('Yuki Whobrey', 'MI'), ('Fletcher Flosi', 'IL'), ('Bette Nicka', 'PA'), ('Veronika Inouye', 'CA'), ('Willard Kolmetz', 'TX'), ('Maryann Royster', 'NY'), ('Alisha Slusarski', 'NJ'), ('Allene Iturbide', 'WI'), ('Chanel Caudy', 'KS'), ('Ezekiel Chui', 'MD'), ('Willow Kusko', 'NY'), ('Bernardo Figeroa', 'TX'), ('Ammie Corrio', 'OH'), ('Francine Vocelka', 'NM'), ('Ernie Stenseth', 'NJ'), ('Albina Glick', 'NJ'), ('Alishia Sergi', 'NY'), ('Solange Shinko', 'LA'), ('Jose Stockham', 'NY'), ('Rozella Ostrosky', 'CA'), ('Valentine Gillian', 'TX'), ('Kati Rulapaugh', 'KS'), ('Youlanda Schemmer', 'OR'), ('Dyan Oldroyd', 'KS'), ('Roxane Campain', 'AK'), ('Lavera Perin', 'FL'), ('Erick Ferencz', 'AK'), ('Fatima Saylors', 'MN'), ('Jina Briddick', 'MA'), ('Kanisha Waycott', 'CA'), ('Emerson Bowley', 'WI'), ('Blair Malet', 'PA'), ('Brock Bolognia', 'NY'), ('Lorrie Nestle', 'TN'), ('Sabra Uyetake', 'SC'), ('Marjory Mastella', 'PA'), ('Karl Klonowski', 'NJ'), ('Tonette Wenner', 'NY'), ('Amber Monarrez', 'PA'), ('Shenika Seewald', 'CA'), ('Delmy Ahle', 'RI'), ('Deeanna Juhas', 'PA'), ('Blondell Pugh', 'RI'), ('Jamal Vanausdal', 'NJ'), ('Cecily Hollack', 'TX'), ('Carmelina Lindall', 'CO'), ('Maurine Yglesias', 'WI'), ('Tawna Buvens', 'NY'), ('Penney Weight', 'AK'), ('Elly Morocco', 'PA'), ('Ilene Eroman', 'MD'), ('Vallie Mondella', 'ID'), ('Kallie Blackwood', 'CA'), ('Johnetta Abdallah', 'NC'), ('Bobbye Rhym', 'CA'), ('Micaela Rhymes', 'CA'), ('Tamar Hoogland', 'OH'), ('Moon Parlato', 'NY'), ('Laurel Reitler', 'MD'), ('Delisa Crupi', 'NJ'), ('Viva Toelkes', 'IL'), ('Elza Lipke', 'NJ'), ('Devorah Chickering', 'NM'), ('Timothy Mulqueen', 'NY'), ('Arlette Honeywell', 'FL'), ('Dominque Dickerson', 'CA'), ('Lettie Isenhower', 'OH'), ('Myra Munns', 'TX'), ('Stephaine Barfield', 'CA'),        ('Lai Gato', 'IL'), ('Stephen Emigh', 'OH'), ('Tyra Shields', 'PA'), ('Tammara Wardrip', 'CA'), ('Cory Gibes', 'CA'), ('Danica Bruschke', 'TX'), ('Wilda Giguere', 'AK'), ('Elvera Benimadho', 'CA'), ('Carma Vanheusen', 'CA'), ('Malinda Hochard', 'IN'), ('Natalie Fern', 'WY'), ('Lisha Centini', 'VA'), ('Arlene Klusman', 'LA'), ('Alease Buemi', 'CO'), ('Louisa Cronauer', 'CA'), ('Angella Cetta', 'HI'), ('Cyndy Goldammer', 'MN'), ('Rosio Cork', 'NC'), ('Celeste Korando', 'NY'), ('Twana Felger', 'OR'), ('Estrella Samu', 'WI'), ('Donte Kines', 'MA'), ('Tiffiny Steffensmeier', 'FL'), ('Edna Miceli', 'PA'), ('Sue Kownacki', 'TX'), ('Jesusa Shin', 'TN'), ('Rolland Francescon', 'NJ'), ('Pamella Schmierer', 'FL'), ('Glory Kulzer', 'MD'), ('Shawna Palaspas', 'CA'), ('Brandon Callaro', 'HI'), ('Scarlet Cartan', 'GA'), ('Oretha Menter', 'MA'), ('Ty Smith', 'NJ'), ('Xuan Rochin', 'CA'), ('Lindsey Dilello', 'CA'), ('Devora Perez', 'CA'), ('Herman Demesa', 'NY'), ('Rory Papasergi',
+        'PA'), ('Talia Riopelle', 'NJ'), ('Van Shire', 'NJ'), ('Lucina Lary', 'FL'), ('Bok Isaacs', 'NY'), ('Rolande Spickerman', 'HI'), ('Howard Paulas', 'CO'), ('Kimbery Madarang', 'NJ'), ('Thurman Manno', 'NJ'), ('Becky Mirafuentes', 'NJ'), ('Beatriz Corrington', 'MA'), ('Marti Maybury', 'IL'), ('Nieves Gotter', 'OR'), ('Leatha Hagele', 'TX'), ('Valentin Klimek', 'IL'), ('Melissa Wiklund', 'OH'), ('Sheridan Zane', 'CA'),
+        ('Bulah Padilla', 'TX'), ('Audra Kohnert', 'TN'), ('Daren Weirather', 'WI'), ('Fernanda Jillson', 'MD'), ('Gearldine Gellinger', 'TX'), ('Chau Kitzman', 'CA'), ('Theola Frey', 'NY'), ('Cheryl Haroldson', 'NJ'), ('Laticia Merced', 'OH'), ('Carissa Batman', 'OR'), ('Lezlie Craghead', 'NC'), ('Ozell Shealy', 'NY'), ('Arminda Parvis', 'AZ'), ('Reita Leto', 'IN'), ('Yolando Luczki', 'NY'), ('Lizette Stem', 'NJ'), ('Gregoria Pawlowicz', 'NY'), ('Carin Deleo', 'AR'), ('Chantell Maynerich', 'MN'), ('Dierdre Yum', 'PA'), ('Larae Gudroe', 'LA'), ('Latrice Tolfree', 'NY'), ('Kerry Theodorov', 'CA'), ('Dorthy Hidvegi', 'ID'), ('Fannie Lungren', 'TX'), ('Evangelina Radde', 'PA'), ('Novella Degroot', 'HI'), ('Clay Hoa', 'NV'), ('Jennifer Fallick', 'IL'), ('Irma Wolfgramm', 'NJ'), ('Eun Coody', 'SC'), ('Sylvia Cousey', 'MD'), ('Nana Wrinkles', 'NY'), ('Layla Springe', 'NY'), ('Joesph Degonia', 'CA'), ('Annabelle Boord', 'MA'), ('Stephaine Vinning', 'CA'), ('Nelida Sawchuk', 'NJ'), ('Marguerita Hiatt', 'CA'), ('Carmela Cookey', 'IL'), ('Junita Brideau', 'NJ'), ('Claribel Varriano', 'OH'), ('Benton Skursky', 'CA'), ('Hillary Skulski', 'FL'), ('Merilyn Bayless', 'CA'), ('Teri Ennaco', 'PA'), ('Merlyn Lawler', 'NJ'), ('Georgene Montezuma', 'CA'), ('Jettie Mconnell', 'NJ'), ('Lemuel Latzke', 'NY'), ('Melodie Knipp', 'CA'), ('Candida Corbley', 'NJ'), ('Karan Karpin', 'OR'), ('Andra Scheyer', 'OR'), ('Felicidad Poullion', 'NJ'), ('Belen Strassner', 'GA'), ('Gracia Melnyk', 'FL'), ('Jolanda Hanafan', 'ME'), ('Barrett Toyama', 'TX'), ('Helga Fredicks', 'NY'), ('Ashlyn Pinilla', 'FL'), ('Fausto Agramonte', 'NY'), ('Ronny Caiafa', 'PA'), ('Marge Limmel', 'FL'), ('Norah Waymire', 'CA'), ('Aliza Baltimore', 'CA'), ('Mozell Pelkowski', 'CA'), ('Viola Bitsuie', 'CA'), ('Franklyn Emard', 'PA'), ('Willodean Konopacki', 'LA'), ('Beckie Silvestrini', 'MI'), ('Rebecka Gesick', 'TX'), ('Frederica Blunk', 'TX'), ('Glen Bartolet', 'WA'), ('Freeman Gochal', 'PA'),
+        ('Vincent Meinerding', 'PA'), ('Rima Bevelacqua', 'CA'), ('Glendora Sarbacher', 'CA'), ('Avery Steier', 'FL'), ('Cristy Lother', 'CA'), ('Nicolette Brossart', 'MA'), ('Tracey Modzelewski', 'TX'), ('Virgina Tegarden', 'WI'), ('Tiera Frankel', 'CA'), ('Alaine Bergesen', 'NY'), ('Earleen Mai', 'TX'), ('Leonida Gobern', 'MS'), ('Ressie Auffrey', 'FL'), ('Justine Mugnolo', 'NY'), ('Eladia Saulter', 'NJ'), ('Chaya Malvin', 'MI'), ('Gwenn Suffield', 'NY'), ('Salena Karpel', 'OH'), ('Yoko Fishburne', 'CT'), ('Taryn Moyd', 'VA'), ('Katina Polidori', 'MA'), ('Rickie Plumer', 'OH'), ('Alex Loader', 'WA'), ('Lashon Vizarro', 'CA'), ('Lauran Burnard', 'WY'), ('Ceola Setter', 'ME'), ('My Rantanen', 'PA'), ('Lorrine Worlds', 'FL'), ('Peggie Sturiale', 'CA'), ('Marvel Raymo', 'TX'), ('Daron Dinos', 'IL'), ('An Fritz', 'NJ'), ('Portia Stimmel',
+        'NJ'), ('Rhea Aredondo', 'NY'), ('Benedict Sama', 'MO'), ('Alyce Arias', 'CA'), ('Heike Berganza', 'NJ'), ('Carey Dopico', 'IN'), ('Dottie Hellickson', 'WA'), ('Deandrea Hughey', 'NC'), ('Kimberlie Duenas', 'KS'), ('Martina Staback', 'FL'), ('Skye Fillingim', 'MN'), ('Jade Farrar', 'SC'), ('Charlene Hamilton', 'CA'), ('Geoffrey Acey', 'IL'), ('Stevie Westerbeck', 'CA'), ('Pamella Fortino', 'CO'), ('Harrison Haufler', 'CT'), ('Johnna Engelberg', 'WA'), ('Buddy Cloney', 'OH'), ('Dalene Riden', 'NH'), ('Jerry Zurcher', 'FL'), ('Haydee Denooyer', 'NY'), ('Joseph Cryer', 'CA'), ('Deonna Kippley', 'MI'), ('Raymon Calvaresi', 'IN'), ('Alecia Bubash', 'TX'), ('Ma Layous', 'CT'), ('Detra Coyier', 'MD'), ('Terrilyn Rodeigues', 'LA'), ('Salome Lacovara', 'VA'), ('Garry Keetch', 'PA'), ('Matthew Neither', 'MN'), ('Theodora Restrepo', 'FL'), ('Noah Kalafatis', 'WI'), ('Carmen Sweigard', 'NJ'), ('Lavonda Hengel', 'ND'), ('Junita Stoltzman', 'NV'), ('Herminia Nicolozakes', 'AZ'),
+        ('Casie Good', 'TN'), ('Reena Maisto', 'MD'), ('Mirta Mallett', 'NY'), ('Cathrine Pontoriero', 'TX'), ('Filiberto Tawil', 'CA'), ('Raul Upthegrove', 'CA'), ('Sarah Candlish', 'GA'), ('Lucy Treston', 'MA'), ('Judy Aquas', 'MI'), ('Yvonne Tjepkema', 'NJ'), ('Kayleigh Lace', 'LA'),('Felix Hirpara', 'PA'), ('Tresa Sweely', 'MO'), ('Kristeen Turinetti', 'TX'), ('Jenelle Regusters', 'FL'), ('Renea Monterrubio', 'GA'), ('Olive Matuszak', 'CA'), ('Ligia Reiber', 'MI'), ('Christiane Eschberger', 'AZ'), ('Goldie Schirpke', 'ME'), ('Loreta Timenez', 'MD'), ('Fabiola Hauenstein', 'PA'), ('Amie Perigo', 'TX'), ('Raina Brachle', 'MT'), ('Erinn Canlas', 'NJ'), ('Cherry Lietz', 'MI'), ('Kattie Vonasek', 'OH'), ('Lilli Scriven', 'TX'), ('Whitley Tomasulo', 'TX'), ('Barbra Adkin', 'NY'), ('Hermila Thyberg', 'RI'), ('Jesusita Flister', 'PA'), ('Caitlin Julia', 'RI'), ('Roosevelt Hoffis', 'FL'), ('Helaine Halter', 'NJ'), ('Lorean Martabano', 'TX'), ('France Buzick', 'NY'), ('Justine Ferrario', 'CA'), ('Adelina Nabours', 'OH'), ('Derick Dhamer', 'NY'), ('Jerry Dallen', 'VA'), ('Leota Ragel', 'GA'), ('Jutta Amyot', 'LA'), ('Aja Gehrett', 'NJ'), ('Kirk Herritt', 'NY'), ('Leonora Mauson', 'NJ'), ('Winfred Brucato', 'ID'), ('Tarra Nachor', 'CA'), ('Corinne Loder', 'MA'), ('Dulce Labreche', 'MI'), ('Kate Keneipp', 'WI'), ('Kaitlyn Ogg', 'MD'), ('Sherita Saras', 'CO'), ('Lashawnda Stuer', 'OH'), ('Ernest Syrop', 'MD'), ('Nobuko Halsey', 'MA'), ('Lavonna Wolny', 'VA'), ('Lashaunda Lizama', 'MD'), ('Mariann Bilden', 'TX'), ('Helene Rodenberger', 'AZ'), ('Roselle Estell', 'OH'), ('Samira Heintzman', 'WA'), ('Margart Meisel', 'OH'), ('Kristofer Bennick', 'IN'), ('Weldon Acuff', 'IL'), ('Shalon Shadrick', 'NY'), ('Denise Patak', 'FL'), ('Louvenia Beech', 'CA'), ('Audry Yaw', 'FL'), ('Kristel Ehmann', 'TX'), ('Vincenza Zepp', 'CA'), ('Elouise Gwalthney', 'MD'), ('Venita Maillard', 'CA'), ('Kasandra Semidey', 'MO'), ('Xochitl Discipio', 'TX'), ('Maile Linahan', 'NC'), ('Krissy Rauser', 'NY'), ('Pete Dubaldi', 'NJ'), ('Linn Paa', 'TN'), ('Paris Wide', 'GA'), ('Wynell Dorshorst', 'CA'), ('Quentin Birkner', 'MN'), ('Regenia Kannady', 'AZ'), ('Sheron Louissant', 'NY'), ('Izetta Funnell', 'GA'), ('Rodolfo Butzen', 'MN'), ('Zona Colla', 'CT'), ('Serina Zagen', 'IN'), ('Paz Sahagun', 'MS'), ('Markus Lukasik', 'MI'), ('Jaclyn Bachman', 'CO'), ('Cyril Daufeldt', 'NY'), ('Gayla Schnitzler', 'CA'), ('Erick Nievas', 'IL'), ('Jennie Drymon', 'PA'), ('Mitsue Scipione', 'CA'), ('Ciara Ventura', 'NY'), ('Galen Cantres', 'OH'), ('Truman Feichtner', 'NJ'), ('Gail Kitty', 'AK'), ('Dalene Schoeneck', 'PA'), ('Gertude Witten', 'OH'), ('Lizbeth Kohl', 'CA'), ('GlennBerray', 'IA'), ('Lashandra Klang', 'PA'), ('Lenna Newville', 'NC'), ('Laurel Pagliuca', 'WA'), ('Mireya Frerking', 'NY'), ('Annelle Tagala', 'MD'), ('Dean Ketelsen', 'NY'), ('Levi Munis', 'MA'), ('Sylvie Ryser', 'OK'), ('Sharee Maile', 'MI'), ('Cordelia Storment', 'LA'), ('Mollie Mcdoniel', 'OH'), ('Brett Mccullan', 'CA'), ('Teddy Pedrozo', 'CT'), ('Tasia Andreason', 'NJ'), ('Hubert Walthall', 'OH'), ('Arthur Farrow', 'NJ'), ('Vilma Berlanga', 'MI'), ('Billye Miro', 'MS'), ('Glenna Slayton', 'TN'), ('Mitzie Hudnall', 'CO'), ('Bernardine Rodefer', 'TN'), ('Staci Schmaltz', 'CA'), ('Nichelle Meteer', 'IL'), ('Janine Rhoden', 'NY'), ('Ettie Hoopengardner', 'WA'), ('Eden Jayson', 'MD'), ('Lynelle Auber', 'NJ'), ('Merissa Tomblin', 'CA'), ('Golda Kaniecki', 'NJ'), ('Catarina Gleich', 'NJ'), ('Virgie Kiel', 'CO'), ('Jolene Ostolaza', 'VA'), ('Keneth Borgman', 'AZ'), ('Rikki Nayar', 'FL'), ('Elke Sengbusch', 'AZ'), ('Hoa Sarao', 'FL'), ('Trinidad Mcrae', 'CA'), ('Mari Lueckenbach', 'CA'), ('Selma Husser', 'NJ'), ('Antione Onofrio', 'CA'), ('Luisa Jurney', 'MA'), ('Clorinda Heimann', 'CA'), ('Dick Wenzinger','CA'), ('Ahmed Angalich', 'PA'), ('Iluminada Ohms', 'AZ'), ('Joanna Leinenbach', 'FL'), ('Caprice Suell', 'TN'), ('Stephane Myricks', 'KY'), ('Quentin Swayze', 'MI'), ('Annmarie Castros', 'TX'), ('Shonda Greenbush', 'NJ'), ('Cecil Lapage', 'NJ'), ('Jeanice Claucherty', 'FL'), ('Josphine Villanueva', 'TN'), ('Daniel Perruzza', 'CA'), ('Cassi Wildfong', 'IL'), ('Britt Galam', 'PA'), ('Adell Lipkin', 'NJ'), ('Jacqueline Rowling', 'PA'), ('Lonny Weglarz', 'UT'), ('Lonna Diestel', 'NC'), ('Cristal Samara', 'CA'), ('Kenneth Grenet', 'MI'), ('Elli Mclaird', 'NY'), ('Alline Jeanty', 'IN'), ('Sharika Eanes', 'FL'), ('Nu Mcnease', 'NJ'), ('Daniela Comnick', 'NJ'), ('Cecilia Colaizzo', 'WI'), ('LeslieThreets', 'NY'), ('Nan Koppinger', 'NC'), ('Izetta Dewar', 'MD'), ('Tegan Arceo', 'NJ'), ('Ruthann Keener', 'TX'), ('Joni Breland', 'IL'), ('Vi Rentfro', 'NJ'), ('Colette Kardas', 'NE'), ('Malcolm Tromblay', 'VA'), ('Ryan Harnos', 'TX'), ('Jess Chaffins', 'NY'), ('Sharen Bourbon', 'NY'), ('Nickolas Juvera', 'FL'), ('Gary Nunlee', 'IN'), ('Diane Devreese', 'MO'), ('Roslyn Chavous', 'MS'), ('Glory Schieler', 'TX'), ('Rasheeda Sayaphon', 'CA'), ('Alpha Palaia', 'NJ'), ('Refugia Jacobos', 'CA'), ('Shawnda Yori', 'FL'), ('Mona Delasancha', 'WY'), ('Gilma Liukko', 'NY'), ('Janey Gabisi', 'WI'), ('Lili Paskin', 'NJ'), ('Loren Asar', 'PA'), ('Dorothy Chesterfield', 'CA'), ('Gail Similton', 'CA'), ('Catalina Tillotson', 'NJ'), ('Lawrence Lorens', 'RI'), ('Carlee Boulter', 'KS'), ('Thaddeus Ankeny', 'CA'), ('Jovita Oles', 'FL'), ('AlesiaHixenbaugh', 'DC'), ('Lai Harabedian', 'CA'), ('Brittni Gillaspie', 'ID'), ('Raylene Kampa', 'IN'), ('Flo Bookamer', 'NE'), ('Jani Biddy', 'WA'), ('Chauncey Motley', 'FL')]
+    return employee_data
 
 if __name__ == '__main__':
-    load_employee_data({'DEV': 5, 'RTB': 10})
+    # load_employee_data({'DEV': 5, 'RTB': 10})
+    # export_employee_data()
+    print(get_employee_data())

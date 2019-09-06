@@ -17,7 +17,7 @@ def predict_handler(event, context):
 def allocate_handler(event, context):
     strategy = event['queryStringParameters']['startegy']
 
-    result = allocate.allocate_seat_for_N(strategy)
+    result = allocate.allocate_seat_for_K(strategy)
     return {
         'statusCode': 200,
         'body': json.dumps(result)

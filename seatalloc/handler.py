@@ -2,7 +2,7 @@ import json
 import predictor
 import allocate
 
-def predict_handler(event, context):
+def predict(event, context):
     runcount = int(event['queryStringParameters']['rc'])
     usercount = int(event['queryStringParameters']['uc'])
     dayofyear = int(event['queryStringParameters']['doy'])
@@ -14,7 +14,7 @@ def predict_handler(event, context):
         'body': json.dumps(result)
     }
     
-def allocate_handler(event, context):
+def allocate(event, context):
     strategy = event['queryStringParameters']['startegy']
 
     result = allocate.allocate_seat_for_N(strategy)

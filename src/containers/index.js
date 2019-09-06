@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import Layout from './layout'
 export class Root extends Component {
     render() {
         const {data} = this.props;
         return (
             <div>
-               {data} 
+               <Layout/>
             </div>
         )
     }

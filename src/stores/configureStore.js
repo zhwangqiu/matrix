@@ -6,16 +6,16 @@ import rootReducer from '../reducers'
 
 export default (initState) =>{
     // const saga = createSagaMiddleware();
-    const logger = createLogger();
-    const enhancer = compose(applyMiddleware(logger))
-    const store = createStore(rootReducer,enhancer)
+    // const logger = createLogger();
+    // const enhancer = compose(applyMiddleware(logger))
+    const store = createStore(rootReducer)
 
-    if(module.hot){
-        module.hot.accept('../reducers',()=>{
-            const next = require('../reducers').default;
-            store.replaceReducer(next);
-        })
-    }
+    // if(module.hot){
+    //     module.hot.accept('../reducers',()=>{
+    //         const next = require('../reducers').default;
+    //         store.replaceReducer(next);
+    //     })
+    // }
 
     // saga.run(rootSagas)
     // store.close = ()=>store.dispatch(END)

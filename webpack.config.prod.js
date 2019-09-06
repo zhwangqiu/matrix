@@ -1,14 +1,14 @@
 const path=require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 const config = {
   mode:"production",
-  watch:true,
+  // watch:true,
  entry:{
     index:'./src/index.js'
   },
   plugins: [
+    new HtmlWebpackPlugin({template:'./public/index.html'}),
   ],
   output:{
     path:path.resolve(__dirname,'dist'),
